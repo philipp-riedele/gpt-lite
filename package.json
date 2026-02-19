@@ -1,0 +1,72 @@
+{
+  "name": "gpt-lite",
+  "version": "1.0.0",
+  "description": "Lightweight ChatGPT desktop client — phone UI, fast bundle, minimal footprint",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "tsc && electron-builder",
+    "build:linux": "tsc && electron-builder --linux",
+    "build:win": "tsc && electron-builder --win",
+    "build:mac": "tsc && electron-builder --mac",
+    "dev": "tsc && electron ."
+  },
+  "keywords": [
+    "chatgpt",
+    "gpt-lite",
+    "electron",
+    "mobile-mode",
+    "performance",
+    "desktop-app"
+  ],
+  "author": {
+    "name": "Philipp Riedele",
+    "email": "philipp-riedele@users.noreply.github.com"
+  },
+  "homepage": "https://github.com/philipp-riedele/gpt-lite",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/philipp-riedele/gpt-lite.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "electron": "^40.4.1",
+    "electron-builder": "^24.9.1",
+    "typescript": "^5.3.0"
+  },
+  "build": {
+    "appId": "com.prmeta.gpt-lite",
+    "productName": "GPT Lite",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json",
+      "assets/**/*"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility",
+      "maintainer": "Philipp Riedele <philipp-riedele@users.noreply.github.com>",
+      "icon": "assets/icon.png"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.productivity"
+    }
+  }
+}
